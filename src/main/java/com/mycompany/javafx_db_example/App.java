@@ -8,7 +8,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Scanner;
-import javafx.scene.paint.Color;
+
 
 /**
  * JavaFX App
@@ -52,6 +52,7 @@ public class App extends Application {
             System.out.println("===================================");
             System.out.print("Enter your choice: ");
             input = scan.next().charAt(0);
+            scan.useDelimiter("\n");
 
             switch (input) {
                 case 'g':
@@ -66,6 +67,7 @@ public class App extends Application {
                     break;
 
                 case 'i':
+                    Person2 p;
                     System.out.print("Enter Name: ");
                     String name = scan.next();
                     System.out.print("Enter Email: ");
@@ -76,7 +78,10 @@ public class App extends Application {
                     String address = scan.next();
                     System.out.print("Enter Password: ");
                     String password = scan.next();
-                    cdbop.insertUser(name, email, phone, address, password); //Your insertUser method
+                    System.out.print("Enter Salary: ");
+                    int salary = scan.nextInt();
+                    p = new Person2(name, email, phone, address, password, salary);
+                    cdbop.insertUser(p); //Your insertUser method
                     break;
                 case 'q':
                     System.out.print("Enter the name to query: ");
